@@ -34,3 +34,8 @@ Example API (HTTP):
 - DELETE /kv/{key} -> 200 on success
 - POST /admin/replicas -> add follower URL for replication
 - GET /admin/health -> simple health check
+
+## Contributing
+
+Propose changes to `main` through a pull request. One approval and the
+`unit-tests` check are required before merging.
