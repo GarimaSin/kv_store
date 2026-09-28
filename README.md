@@ -24,6 +24,8 @@ pip install -r requirements.txt
 # Run single-node server (no replication)
 uvicorn server:app --reload --port 8000
 
+# Test changes - Please submit changes through a pull request
+
 # Run tests
 pytest -q
 ```
@@ -34,3 +36,4 @@ Example API (HTTP):
 - DELETE /kv/{key} -> 200 on success
 - POST /admin/replicas -> add follower URL for replication
 - GET /admin/health -> simple health check
+
