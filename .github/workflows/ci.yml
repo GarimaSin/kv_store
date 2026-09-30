@@ -1,0 +1,33 @@
+name: KV Store CI
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Run unit tests
+        run: python -m pytest -q
+
+      - name: Upload sample artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: kv-store-sample
+          path: ci/sample-artifact.txt
+          if-no-files-found: error
