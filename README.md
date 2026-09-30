@@ -27,8 +27,13 @@ uvicorn server:app --reload --port 8000
 # Test changes - Please submit changes through a pull request
 
 # Run tests
-pytest -q
+python -m pytest -q
 ```
+
+CI preparation
+- Use Python 3.12 and install dependencies from `requirements.txt`.
+- Run `python -m pytest -q` from the repository root.
+- The prepared sample artifact input is `ci/sample-artifact.txt`.
 
 Example API (HTTP):
 - PUT /kv/{key}  body: raw value or JSON {"value": "...", "ttl": seconds}
@@ -36,4 +41,3 @@ Example API (HTTP):
 - DELETE /kv/{key} -> 200 on success
 - POST /admin/replicas -> add follower URL for replication
 - GET /admin/health -> simple health check
-
