@@ -35,6 +35,20 @@ CI preparation
 - Run `python -m pytest -q` from the repository root.
 - The prepared sample artifact input is `ci/sample-artifact.txt`.
 
+## CLI usage
+
+Keep the Quickstart server running. In a second terminal, open the repository
+root and activate the same virtual environment used in Quickstart. The CLI
+connects to `http://127.0.0.1:8000` by default.
+
+```bash
+python cli.py put onboarding-demo hello
+python cli.py get onboarding-demo
+python cli.py del onboarding-demo
+```
+
+The `get` command prints `hello`. The `del` command removes the sample key.  
+
 Example API (HTTP):
 - PUT /kv/{key}  body: raw value or JSON {"value": "...", "ttl": seconds}
 - GET /kv/{key}  -> 200 with raw value, or 404
