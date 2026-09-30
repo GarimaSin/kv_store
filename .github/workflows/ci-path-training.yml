@@ -1,0 +1,24 @@
+name: CI path investigation (training)
+
+on:
+  push:
+    branches: [training/failed-run-inspection-20260930]
+
+permissions:
+  contents: read
+
+jobs:
+  smoke-check:
+    name: Smoke check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Run CI smoke-check script
+        run: python scripts/ci_smoke_check.py
